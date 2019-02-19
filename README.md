@@ -21,6 +21,12 @@ Android屏幕适配  使用的是 ***屏幕分辨率限定符与 smallestWidth �
 
 ![avatar](image/smallestWidth.png)
 
+ConstraintLayout在三个Fragment中使用将其一些属性以及链的使用如下图：
+
+![avatar](image/home.png) ![avatar](image/order.png) ![avatar](image/me.png)
+
+
+
 
 
 
