@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_relative_position"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btn_A"
+        android:text="A"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintVertical_bias="0.3"/>
+
+    <Button
+        android:text="在A下方,与A左对齐"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/btn_A"
+        app:layout_constraintLeft_toLeftOf="@id/btn_A"
+        android:layout_marginTop="32dp"
+        />
+
+    <Button
+        android:text="在A上方,与A居中对齐"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/btn_A"
+        app:layout_constraintLeft_toLeftOf="@id/btn_A"
+        app:layout_constraintRight_toRightOf="@id/btn_A"
+        android:layout_marginBottom="32dp"
+        />
+
+    <Button
+        android:text="baseline对齐"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        app:layout_constraintBaseline_toBaselineOf="@id/btn_A"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="8dp"
+        android:gravity="bottom"
+        />
+
+    <Button
+        android:text="水平居中对齐"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:gravity="bottom"
+        app:layout_constraintTop_toTopOf="@id/btn_A"
+        app:layout_constraintBottom_toBottomOf="@id/btn_A"
+        app:layout_constraintLeft_toRightOf="@id/btn_A"
+        android:layout_marginLeft="16dp"/>
+
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,109 @@
+ext {
+
+    android = [
+            compileSdkVersion      : 28,
+            buildToolsVersion      : "28.0.0",
+            minSdkVersion          : 19,
+            targetSdkVersion       : 28
+
+
+    ]
+
+    dependVersion = [
+            rxJava                  : "2.2.4",
+            rxAndroid               : "2.1.0",
+            retrofit                : "2.5.0",
+            logging_interceptor     : "3.12.1",
+            rxlifecycle             : "3.0.0",
+            supportVersion          : "28.0.0",
+            constraint_layout       : "1.1.3",
+            junit                   : "4.12",
+            runner                  : "1.0.2",
+            espresso_core           : "3.0.2",
+            arouter_api             : "1.4.1",
+            arouter_compiler        : "1.2.2",
+            rxlifecycle             : "2.2.1",
+            butterknife             : "8.8.1",
+            evenbus                 : "3.1.1",
+            multidex                : "1.0.3",
+            walle                   : "1.1.6",
+            stetho                  : "1.5.0",
+            rxpermissions           : "0.10.2",
+
+    ]
+
+    supportLib = [
+            "support-v4"            : "com.android.support:support-v4:$dependVersion.supportVersion",
+            "appcompat-v7"          : "com.android.support:appcompat-v7:$dependVersion.supportVersion",
+            "design"                : "com.android.support:design:$dependVersion.supportVersion",
+            "recyclerview-v7"       : "com.android.support:recyclerview-v7:$dependVersion.supportVersion",
+            "constraint-layout"     : "com.android.support.constraint:constraint-layout:$dependVersion.constraint_layout"
+
+    ]
+
+    test=[
+            "junit"                  : "junit:junit:$dependVersion.junit",
+            "runner"                 : "com.android.support.test:runner:$dependVersion.runner",
+            "espresso-core"          : "com.android.support.test.espresso:espresso-core:$dependVersion.espresso_core"
+    ]
+
+    rxJava = [
+            "rxJava"                 : "io.reactivex.rxjava2:rxjava:$dependVersion.rxJava",
+            "rxAndroid"              : "io.reactivex.rxjava2:rxandroid:$dependVersion.rxAndroid"
+    ]
+
+    retrofit = [
+            "retrofit"               : "com.squareup.retrofit2:retrofit:$dependVersion.retrofit",
+            "retrofit-gson"          : "com.squareup.retrofit2:converter-gson:$dependVersion.retrofit",
+            "retrofit-adapter"       : "com.squareup.retrofit2:adapter-rxjava2:$dependVersion.retrofit"
+    ]
+
+    rxLifecycle =[
+            "rxlifecycle"            : "com.trello.rxlifecycle2:rxlifecycle:$dependVersion.rxlifecycle",
+            "rxlifecycle-components" :"com.trello.rxlifecycle2:rxlifecycle-components:$dependVersion.rxlifecycle"
+    ]
+
+    okhttp = [
+            "logging-interceptor"    : "com.squareup.okhttp3:logging-interceptor:$dependVersion.logging_interceptor"
+    ]
+
+    arouter = [
+            "arouter-api"            : "com.alibaba:arouter-api:$dependVersion.arouter_api",
+            "arouter-compiler"       : "com.alibaba:arouter-compiler:$dependVersion.arouter_compiler"
+    ]
+
+    butterknife= [
+            "butterknife"            : "com.jakewharton:butterknife:$dependVersion.butterknife",
+            "butterknife-compiler"   : "com.jakewharton:butterknife-compiler:$dependVersion.butterknife"
+    ]
+
+    eventbus= [
+           "eventbus"                : "org.greenrobot:eventbus:$dependVersion.evenbus"
+    ]
+
+    bugly=[
+            "bugly"                  : "com.tencent.bugly:crashreport_upgrade:latest.release",
+            // 指定tinker依赖版本（注：应用升级1.3.5版本起，不再内置tinker）
+            "thinker"                : "com.tencent.tinker:tinker-android-lib:latest.release",
+            "bugly-report"           : "com.tencent.bugly:nativecrashreport:latest.release" //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.2.0
+    ]
+
+    multidex=[
+            "multidex"               : "com.android.support:multidex:$dependVersion.multidex" // 多dex配置
+    ]
+
+    walle =[
+            "walle"                  : "com.meituan.android.walle:library:$dependVersion.walle"
+    ]
+
+    stetho=[
+            "stetho"                 : "com.facebook.stetho:stetho:$dependVersion.stetho",
+            "stetho-okhttp3"         : "com.facebook.stetho:stetho-okhttp3:$dependVersion.stetho"
+    ]
+
+    rxpermissions=[
+            "rxpermissions"          : "com.github.tbruyelle:rxpermissions:$dependVersion.rxpermissions"
+    ]
+
+
+}

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/login_bg"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/qb_px_27"
+        android:layout_marginLeft="@dimen/qb_px_60"
+        android:layout_marginTop="@dimen/qb_px_157"
+        android:textColor="@color/color_white"
+        android:textSize="@dimen/qb_px_46" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/qb_px_237"
+        android:layout_marginLeft="@dimen/qb_px_60"
+        android:textColor="@color/color_white"
+        android:textSize="@dimen/qb_px_66" />
+
+    <EditText
+        android:id="@+id/login_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/qb_px_28"
+        android:layout_marginLeft="@dimen/qb_px_60"
+        android:layout_marginRight="@dimen/qb_px_60"
+        android:background="@null"
+        android:hint="用户名/邮箱"
+        android:lines="1"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:imeOptions="actionDone"
+        android:textColor="@color/color_white"
+        android:textColorHint="@color/color_66"
+        android:textSize="@dimen/qb_px_44" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/qb_px_3"
+        android:layout_marginLeft="@dimen/qb_px_60"
+        android:layout_marginRight="@dimen/qb_px_60"
+        android:background="@color/color_white" />
+
+    <EditText
+        android:id="@+id/login_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/qb_px_28"
+        android:layout_marginLeft="@dimen/qb_px_60"
+        android:layout_marginRight="@dimen/qb_px_60"
+        android:layout_marginTop="@dimen/qb_px_130"
+        android:background="@null"
+        android:hint="登录密码/邮箱密码"
+        android:lines="1"
+        android:singleLine="true"
+        android:inputType="textPassword"
+        android:imeOptions="actionDone"
+        android:textColor="@color/color_white"
+        android:textColorHint="@color/color_66"
+        android:textSize="@dimen/qb_px_44" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/qb_px_3"
+        android:layout_marginLeft="@dimen/qb_px_60"
+        android:layout_marginRight="@dimen/qb_px_60"
+        android:background="@color/color_white" />
+
+    <CheckBox
+        android:id="@+id/login_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/qb_px_60"
+        android:layout_marginTop="@dimen/qb_px_66"
+        android:button="@null"
+        android:drawableLeft="@drawable/radio"
+        android:drawablePadding="@dimen/qb_px_10"
+        android:text="记住密码"
+        android:textColor="@color/color_white"
+        android:textSize="@dimen/qb_px_33" />
+
+    <TextView
+        android:id="@+id/login_login"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/qb_px_116"
+        android:layout_marginLeft="@dimen/qb_px_60"
+        android:layout_marginRight="@dimen/qb_px_60"
+        android:layout_marginTop="@dimen/qb_px_130"
+        android:background="@mipmap/login_btn"
+        android:gravity="center"
+        android:text="登录"
+        android:textColor="@color/color_f2f2f2"
+        android:textSize="@dimen/qb_px_38" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/qb_px_60"
+        android:layout_marginTop="@dimen/qb_px_162">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/icon_ip_line" />
+
+        <ImageView
+            android:id="@+id/login_ip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/icon_ip" />
+    </RelativeLayout>
+</LinearLayout>

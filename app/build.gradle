@@ -1,0 +1,78 @@
+apply plugin: 'com.android.application'
+apply from: 'tinker-support.gradle'
+// 多渠道使用walle示例（注：多渠道使用）
+apply from: 'multiple-channel.gradle'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    defaultConfig {
+        applicationId "com.hydinin.mesproject"
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode 2
+        versionName "1.0.1"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            cmake {
+                cppFlags "-frtti -fexceptions"
+            }
+        }
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+    }
+
+    signingConfigs {
+        release {
+            keyAlias 'hydinin'
+            keyPassword 'hydinin123'
+            storeFile file('../key/keystore.jks')
+            storePassword 'hydinin123'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation rootProject.ext.supportLib["support-v4"]
+    implementation rootProject.ext.supportLib["appcompat-v7"]
+    implementation rootProject.ext.supportLib["constraint-layout"]
+    implementation rootProject.ext.supportLib["design"]
+    implementation rootProject.ext.supportLib["recyclerview-v7"]
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation rootProject.ext.test["junit"]
+    androidTestImplementation rootProject.ext.test["runner"]
+    androidTestImplementation rootProject.ext.test["espresso-core"]
+
+    annotationProcessor rootProject.ext.arouter["arouter-compiler"]
+    annotationProcessor rootProject.ext.butterknife["butterknife-compiler"]
+
+    implementation rootProject.ext.bugly["thinker"]
+    implementation rootProject.ext.bugly["bugly"]
+    implementation rootProject.ext.bugly["bugly-report"]
+    implementation rootProject.ext.multidex["multidex"]
+    implementation rootProject.ext.walle["walle"]
+
+
+    implementation project(':base_module')
+    implementation project(':login_module')
+    implementation project(':user_module')
+}

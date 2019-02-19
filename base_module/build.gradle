@@ -1,0 +1,90 @@
+if(isModule.toBoolean()){
+    apply plugin: 'com.android.application'
+}else {
+    apply plugin: 'com.android.library'
+}
+apply plugin: 'com.jakewharton.butterknife'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    defaultConfig {
+        if (isModule.toBoolean()){
+            applicationId "com.hydinin.base_module"
+        }
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+
+        ndk {
+            //设置支持的SO库架构
+            abiFilters 'armeabi' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
+
+
+    }
+
+    signingConfigs {
+        release {
+            keyAlias 'hydinin'
+            keyPassword 'hydinin123'
+            storeFile file('../key/keystore.jks')
+            storePassword 'hydinin123'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation            rootProject.ext.supportLib["appcompat-v7"]
+    testImplementation        rootProject.ext.test["junit"]
+    androidTestImplementation rootProject.ext.test["runner"]
+    androidTestImplementation rootProject.ext.test["espresso-core"]
+
+    api                       rootProject.ext.arouter["arouter-api"]
+    annotationProcessor       rootProject.ext.arouter["arouter-compiler"]
+
+    api                       rootProject.ext.retrofit["retrofit"]
+    api                       rootProject.ext.retrofit["retrofit-gson"]
+    api                       rootProject.ext.retrofit["retrofit-adapter"]
+    api                       rootProject.ext.rxJava["rxJava"]
+    api                       rootProject.ext.rxJava["rxAndroid"]
+    api                       rootProject.ext.okhttp["logging-interceptor"]
+    api                       rootProject.ext.rxLifecycle["rxlifecycle"]
+    api                       rootProject.ext.rxLifecycle["rxlifecycle-components"]
+
+    api                       rootProject.ext.butterknife["butterknife"]
+    annotationProcessor       rootProject.ext.butterknife["butterknife-compiler"]
+
+    api                       rootProject.ext.eventbus["eventbus"]
+
+    api                       rootProject.ext.stetho["stetho"]
+    api                       rootProject.ext.stetho["stetho-okhttp3"]
+
+    api                       rootProject.ext.rxpermissions["rxpermissions"]
+}

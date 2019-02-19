@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 页面通用左按钮为返回图片右按钮为文字的头部 -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/header"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/header_title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:layout_centerVertical="true">
+
+        <ImageView
+            android:id="@+id/header_img_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/qb_px_30"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/header_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/qb_px_4"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/qb_px_44"
+            android:paddingLeft="@dimen/qb_px_10"
+            android:text="返回"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/qb_px_30"
+            android:visibility="gone"/>
+
+
+        <TextView
+            android:id="@+id/header_title_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:text="EMS系统"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/qb_px_34" />
+
+        <TextView
+            android:id="@+id/header_btn_right_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:paddingRight="@dimen/qb_px_30"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/qb_px_30"
+           android:visibility="gone" />
+
+
+        <ImageView
+            android:id="@+id/header_img_tight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/qb_px_30"
+            android:visibility="gone">
+        </ImageView>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/header_search_layout"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="@dimen/qb_px_88">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/qb_px_60"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/qb_px_40"
+            android:layout_marginRight="@dimen/qb_px_138"
+            android:orientation="horizontal">
+            <!--android:background="@drawable/bg_white_search_layout"-->
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/qb_px_30" />
+            <!--android:src="@mipmap/icon_search_title"-->
+            <EditText
+                android:id="@+id/header_search_edit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/qb_px_20"
+                android:singleLine="true"
+                android:background="@null"
+                android:inputType="number"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/qb_px_28"
+                android:textColor="#7F323B46"
+                android:imeOptions="actionSearch"
+                android:hint="搜索" />
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/header_search_cancle_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:paddingRight="@dimen/qb_px_40"
+            android:text="取消"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/qb_px_28"
+            android:visibility="visible" />
+    </RelativeLayout>
+</RelativeLayout>

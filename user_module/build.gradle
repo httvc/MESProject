@@ -1,0 +1,72 @@
+if (isModule.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    defaultConfig {
+        if (isModule.toBoolean()){
+            applicationId "com.hydinin.user_module"
+        }
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+
+        sourceSets{
+            main{
+                if (isModule.toBoolean()){
+                    manifest.srcFile 'src/main/app/AndroidManifest.xml'
+                }else{
+                    manifest.srcFile 'src/main/module/AndroidManifest.xml'
+                }
+            }
+        }
+    }
+
+
+
+    signingConfigs {
+        release {
+            keyAlias 'hydinin'
+            keyPassword 'hydinin123'
+            storeFile file('../key/keystore.jks')
+            storePassword 'hydinin123'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation            rootProject.ext.supportLib["support-v4"]
+    implementation            rootProject.ext.supportLib["appcompat-v7"]
+    implementation            rootProject.ext.supportLib["constraint-layout"]
+    implementation            rootProject.ext.supportLib["design"]
+    implementation            rootProject.ext.supportLib["recyclerview-v7"]
+    testImplementation        rootProject.ext.test["junit"]
+    androidTestImplementation rootProject.ext.test["runner"]
+    androidTestImplementation rootProject.ext.test["espresso-core"]
+
+    annotationProcessor       rootProject.ext.arouter["arouter-compiler"]
+    annotationProcessor       rootProject.ext.butterknife["butterknife-compiler"]
+
+    implementation project(':base_module')
+}
