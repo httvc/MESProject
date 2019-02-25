@@ -72,6 +72,11 @@ api：和以前compile一样，其他moudle如果包含了此moudle就能直接�
 ![avatar](image/api.png)
 
 
+模块间的跳转用的阿里的ARouter
+
+https://github.com/alibaba/ARouter
+
+
 
 
 

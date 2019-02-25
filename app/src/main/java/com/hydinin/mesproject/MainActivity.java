@@ -29,6 +29,12 @@ public class MainActivity extends BaseActivity {
         System.loadLibrary("native-lib");
     }
 
+    /**
+     * A native method that is implemented by the 'native-lib' native library,
+     * which is packaged with this application.
+     */
+    public native String stringFromJNI();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,13 +49,6 @@ public class MainActivity extends BaseActivity {
     public int getLayout() {
         return R.layout.activity_main;
     }
-
-    /**
-     * A native method that is implemented by the 'native-lib' native library,
-     * which is packaged with this application.
-     */
-    public native String stringFromJNI();
-
 
     private void onTabItemSelected(int position) {
         Fragment fragment = null;

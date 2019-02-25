@@ -2,6 +2,7 @@ package com.hydinin.login_module;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -35,9 +36,13 @@ public class LoginActivity extends MVPActivity<LoginPersent, LoginModel> impleme
     private String userName;
     private String pwd;
 
+    private long mLastClickTime = 0;
+    public static final long TIME_INTERVAL = 1000L;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.i("sssssLoginActivity","onCreate");
     }
 
     @Override
@@ -81,10 +86,51 @@ public class LoginActivity extends MVPActivity<LoginPersent, LoginModel> impleme
                 Toast.makeText(this, "请去ip页面输入ip和端口", Toast.LENGTH_SHORT).show();
             }
         }else if (id==R.id.login_ip){
-            UIHelper.openActivity(this,IpSaveActivity.class);
+            long nowTime = System.currentTimeMillis();
+            if (nowTime - mLastClickTime > TIME_INTERVAL) {
+                UIHelper.openActivity(this,IpSaveActivity.class);
+                mLastClickTime = nowTime;
+            } else {
+                //Toast.makeText(LoginActivity.this, "不要重复点击", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.i("sssssLoginActivity","onRestart");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i("sssssLoginActivity","onStart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("sssssLoginActivity","onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i("sssssLoginActivity","onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i("sssssLoginActivity","onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i("sssssLoginActivity","onDestroy");
+    }
 
     @Override
     public int getLayout() {
